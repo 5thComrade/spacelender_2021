@@ -1,0 +1,33 @@
+.Container {
+  position: relative;
+  font-family: var(--ff-primary);
+  font-weight: 200;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-white);
+}
+
+.Input {
+  width: 80%;
+  height: 3.5rem;
+  padding: 1rem 1rem;
+  border: 1px solid var(--primary-gray);
+  border: none;
+  box-shadow: 4px 2px 4px rgb(0 0 0 / 20%);
+  font-size: 1.1rem;
+  font-family: var(--ff-primary);
+  font-weight: 200;
+  line-height: 1.85;
+  margin: 0.3rem 0;
+}
+
+@media (min-width: 768px) {
+  .Input {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    border-right: 1px solid var(--primary-gray);
+  }
+}
