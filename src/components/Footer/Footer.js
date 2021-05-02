@@ -35,7 +35,7 @@ const Footer = () => {
           >
             <BiPhone />
           </IconContext.Provider>
-          <p>+91 9611358806</p>
+          <p>+91 961-135-8806</p>
         </div>
         <div className={classes.Item}>
           <IconContext.Provider
