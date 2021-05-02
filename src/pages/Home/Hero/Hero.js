@@ -7,9 +7,9 @@ const Hero = () => {
     <div className={classes.Hero}>
       <Search />
       <h1 className={classes.H1}>
-        Find the <span>Perfect Space</span>
+        Find the <span>Perfect Space</span> <br /> for your next
       </h1>
-      <h1 className={classes.H2}>for your next</h1>
+      {/* <h1 className={classes.H2}>for your next</h1> */}
       <div className={classes.Overlay}></div>
     </div>
   );
