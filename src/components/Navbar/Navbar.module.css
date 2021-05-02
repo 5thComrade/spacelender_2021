@@ -21,7 +21,7 @@
   height: 40%;
   top: -100%;
   z-index: 30;
-  background: #000000;
+  background: var(--primary-blue);
   color: var(--primary-white);
   transition: all 0.4s ease-in-out;
 }
