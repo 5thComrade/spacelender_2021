@@ -1,0 +1,56 @@
+.Footer {
+  background: var(--primary-blue);
+  padding: 2rem;
+  display: flex;
+  color: var(--primary-white);
+  font-family: var(--ff-secondary);
+  font-weight: 400;
+  width: 100%;
+  align-items: center;
+}
+
+.Logo {
+  font-size: 1.5rem;
+  display: none;
+  text-align: center;
+}
+
+.Contact {
+  font-size: var(--ff-secondary);
+  width: 100%;
+}
+
+.Contact .Heading {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.Item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.Icon {
+  margin-right: 2rem;
+}
+
+.SocialLink {
+  color: var(--primary-white);
+  transition: var(--transition);
+}
+
+.SocialLink:hover {
+  color: var(--primary-orange);
+}
+
+@media (min-width: 768px) {
+  .Logo {
+    display: block;
+    width: 50%;
+  }
+
+  .Contact {
+    width: 50%;
+  }
+}

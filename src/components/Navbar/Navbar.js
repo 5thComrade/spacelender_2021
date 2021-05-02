@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Navbar.module.css";
 import Burgermenu from "../Burgermenu/Burgermenu";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const [navbarBg, setNavbarBg] = useState(false);
+
   const showDropDownNav = useSelector((state) => state.ui.showDropNavBar);
+
+  const changeBg = () => {
+    if (window.scrollY >= 70) {
+      setNavbarBg(true);
+    } else {
+      setNavbarBg(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBg);
 
   return (
     <React.Fragment>
-      <div className={classes.Navbar}>
+      <div
+        className={
+          navbarBg ? `${classes.Navbar} ${classes.active}` : `${classes.Navbar}`
+        }
+      >
         <div>
           <p>Spacelender</p>
         </div>

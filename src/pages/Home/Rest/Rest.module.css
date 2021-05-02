@@ -1,0 +1,11 @@
+.Rest {
+  position: absolute;
+  top: 200%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .Rest {
+    top: 100%;
+  }
+}
