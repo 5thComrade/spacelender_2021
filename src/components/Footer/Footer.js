@@ -4,12 +4,13 @@ import { IconContext } from "react-icons";
 import { BsEnvelope, BsHouseDoor } from "react-icons/bs";
 import { BiPhone } from "react-icons/bi";
 import { FaInstagram } from "react-icons/fa";
+import logo from "../../assets/contact_logo.png";
 
 const Footer = () => {
   return (
-    <div className={classes.Footer}>
+    <div className={classes.Footer} id="contact">
       <div className={classes.Logo}>
-        <p>Spacelender</p>
+        <img src={logo} alt="spacelender logo" />
       </div>
       <div className={classes.Contact}>
         <p className={classes.Heading}>Contact Us</p>

@@ -1,24 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Burgermenu.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/reducers/ui";
 
 const Burgermenu = () => {
   const dispatch = useDispatch();
-
-  const [active, setActive] = useState(false);
+  const showDropNavBar = useSelector((state) => state.ui.showDropNavBar);
 
   const handleClick = () => {
     dispatch(uiActions.updateShowDropNavBar());
-    setActive((previousState) => {
-      return !previousState;
-    });
   };
   return (
     <div className={classes.plates}>
       <div
         className={
-          active
+          showDropNavBar
             ? `${classes.plate} ${classes.plate2} ${classes.active}`
             : `${classes.plate} ${classes.plate2}`
         }

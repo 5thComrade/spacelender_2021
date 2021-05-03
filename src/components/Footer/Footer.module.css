@@ -10,7 +10,6 @@
 }
 
 .Logo {
-  font-size: 1.5rem;
   display: none;
   text-align: center;
 }
@@ -48,6 +47,14 @@
   .Logo {
     display: block;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Logo img {
+    height: 20vh;
+    width: 16vh;
   }
 
   .Contact {

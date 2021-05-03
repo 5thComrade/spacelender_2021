@@ -15,6 +15,17 @@
   background: var(--primary-blue);
 }
 
+.Logo {
+  display: flex;
+  align-items: center;
+}
+
+.Logo img {
+  height: 8vh;
+  width: 6vh;
+  object-fit: contain;
+}
+
 .DropdownNav {
   position: fixed;
   width: 100%;
@@ -40,28 +51,22 @@
   justify-content: space-around;
 }
 
-.Nav_Links_Dropdown button {
-  border: none;
-  background: transparent;
+.Nav_Links_Dropdown a {
   color: var(--primary-white);
-  font-family: var(ff-secondary);
+  font-family: var(--ff-secondary);
   font-size: 1.2rem;
   transition: var(--transition);
 }
 
-.Nav_Links_Dropdown button:hover {
+.Nav_Links_Dropdown a:hover {
   color: var(--primary-orange);
   cursor: pointer;
-}
-
-.Nav_Links_Dropdown button:focus {
-  outline: none;
 }
 
 .Navbar p {
   color: var(--primary-white);
   font-family: var(--ff-secondary);
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }
 
 .Nav_Links {
@@ -74,26 +79,20 @@
   }
   .Nav_Links {
     display: flex;
-    width: 40%;
+    width: 35%;
     justify-content: space-around;
     align-items: center;
   }
 
-  .Nav_Links button {
-    border: none;
-    background: transparent;
+  .Nav_Links a {
     color: var(--primary-white);
-    font-family: var(ff-secondary);
+    font-family: var(--ff-secondary);
     font-size: 1.2rem;
     transition: var(--transition);
   }
 
-  .Nav_Links button:hover {
+  .Nav_Links a:hover {
     color: var(--primary-orange);
     cursor: pointer;
-  }
-
-  .Nav_Links button:focus {
-    outline: none;
   }
 }

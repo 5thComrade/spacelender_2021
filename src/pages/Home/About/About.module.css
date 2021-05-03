@@ -1,0 +1,86 @@
+.Heading {
+  padding: 1rem 2rem;
+  font-family: var(--ff-primary);
+  font-size: 1.6rem;
+  background: var(--secondary-blue);
+}
+
+.About {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+}
+
+.Images {
+  display: none;
+}
+
+.Content {
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-blue);
+  font-family: var(--ff-primary);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Content h2,
+p {
+  font-size: 1.2rem;
+}
+
+.Item {
+  padding: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .Images {
+    width: 50%;
+    display: block;
+    background: var(--secondary-blue);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .Section1 {
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 48% 48%;
+    grid-row-gap: 4%;
+  }
+
+  .Section2 {
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 100%;
+  }
+
+  .Img1 {
+    border-radius: 1rem;
+    background-image: url("../../../assets/spacelender_3.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .Img2 {
+    border-radius: 1rem;
+    background-image: url("../../../assets/spacelender_2.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .Img3 {
+    border-radius: 1rem;
+    background-image: url("../../../assets/spacelender_1.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .Content {
+    width: 50%;
+  }
+}
