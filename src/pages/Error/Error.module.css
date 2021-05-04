@@ -1,0 +1,33 @@
+.Error {
+  height: 100vh;
+  width: 100%;
+  background: var(--primary-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ff-secondary);
+}
+
+.Container {
+  height: 150px;
+  width: 150px;
+}
+
+.Error h2 {
+  font-size: 4rem;
+}
+
+.homeButton {
+  background: #000000;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-family: var(--ff-secondary);
+  font-size: 1rem;
+  color: var(--primary-white);
+  margin: 1rem 0;
+}
+
+.homeButton:hover {
+  background: #6b6767;
+}
