@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialUIState = {
   showDropNavBar: false,
+  isLoading: false,
 };
 
 const uiSlice = createSlice({
@@ -10,6 +11,9 @@ const uiSlice = createSlice({
   reducers: {
     updateShowDropNavBar(state) {
       state.showDropNavBar = !state.showDropNavBar;
+    },
+    updateIsLoading(state) {
+      state.isLoading = !state.isLoading;
     },
   },
 });

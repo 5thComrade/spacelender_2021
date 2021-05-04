@@ -1,0 +1,65 @@
+.Heading {
+  padding: 1rem 2rem;
+  font-family: var(--ff-primary);
+  font-size: 1.6rem;
+}
+
+.Discover {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50% 50%;
+  width: 100%;
+  height: 600px;
+}
+
+.Party {
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+.Conference {
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+.Party .Img {
+  background-image: url("https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFydHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-size: cover;
+  height: 90%;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.Conference .Img {
+  background-image: url("https://images.unsplash.com/photo-1591115765373-5207764f72e7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uZmVyZW5jZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-size: cover;
+  height: 90%;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.Conference .Img:hover,
+.Party .Img:hover {
+  transform: scale(0.95);
+}
+
+.Discover p {
+  font-family: var(--ff-primary);
+  font-size: 1.2rem;
+  padding: 0.7rem 0;
+}
+
+@media (min-width: 768px) {
+  .Discover {
+    height: 400px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+  }
+
+  .Party,
+  .Conference {
+    padding-right: 1rem;
+  }
+}

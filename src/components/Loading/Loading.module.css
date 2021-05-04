@@ -1,0 +1,22 @@
+.Loading {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 150;
+  background: var(--primary-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Container {
+  width: 150px;
+  height: 150px;
+}
+
+.Loading p {
+  padding: 1rem;
+  font-family: var(--ff-secondary);
+  font-size: 1.2rem;
+}
