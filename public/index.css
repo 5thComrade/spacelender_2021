@@ -7,11 +7,12 @@
 }
 
 :root {
-  --ff-primary: "Montserrat", sans-serif;
-  --ff-secondary: "Roboto", sans-serif;
+  --ff-primary: "Open Sans", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
   --transition: all 0.3s ease-in-out;
   --primary-blue: #47143d;
   --secondary-blue: #f8d7f2;
+  --third-blue: #812e71;
   --primary-white: #ffffff;
   --primary-gray: #ccc;
   --secondary-gray: rgb(236, 236, 236);

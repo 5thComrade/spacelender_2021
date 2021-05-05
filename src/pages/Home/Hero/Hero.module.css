@@ -33,20 +33,6 @@
   animation: changeWord 12s ease-in-out infinite;
 }
 
-.Hero span {
-  display: inline-block;
-}
-
-.Hero span::after {
-  content: "";
-  height: 20px;
-  width: 100%;
-  display: block;
-  border: solid 3px var(--primary-orange);
-  border-color: var(--primary-orange) transparent transparent transparent;
-  border-radius: 50% 50% 0 0;
-}
-
 .Hero img {
   object-fit: cover;
   height: 100%;

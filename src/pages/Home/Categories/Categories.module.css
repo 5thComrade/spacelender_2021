@@ -1,5 +1,4 @@
 .Heading {
-  margin-top: 1rem;
   padding: 0.5rem 2rem;
   font-family: var(--ff-primary);
   font-size: 1.6rem;
@@ -26,7 +25,7 @@
   background-position: center;
   background-size: cover;
   height: 90%;
-  border-radius: 1rem;
+  border-radius: 5px;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -36,7 +35,7 @@
   background-position: center;
   background-size: cover;
   height: 90%;
-  border-radius: 1rem;
+  border-radius: 5px;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -46,7 +45,7 @@
   background-position: center;
   background-size: cover;
   height: 90%;
-  border-radius: 1rem;
+  border-radius: 5px;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -62,6 +61,9 @@
 }
 
 @media (min-width: 768px) {
+  .Heading {
+    margin-top: 2rem;
+  }
   .Categories {
     grid-template-rows: 92%;
     grid-template-columns: 31% 31% 31%;

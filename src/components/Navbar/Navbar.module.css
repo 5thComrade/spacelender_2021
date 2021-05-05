@@ -79,7 +79,7 @@
   }
   .Nav_Links {
     display: flex;
-    width: 35%;
+    width: 30%;
     justify-content: space-around;
     align-items: center;
   }

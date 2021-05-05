@@ -24,8 +24,8 @@
 }
 
 .SearchButton:hover {
-  background: var(--secondary-blue);
-  border: 1px solid var(--secondary-blue);
+  background: var(--third-blue);
+  border: 1px solid var(--third-blue);
   border-left: none;
 }
 
@@ -42,8 +42,18 @@
     top: 0;
   }
 
-  .SearchButton {
-    width: 5rem;
+  .ButtonContainer {
     height: 5rem;
+    width: 5rem;
+    background: var(--primary-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .SearchButton {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 5px;
   }
 }

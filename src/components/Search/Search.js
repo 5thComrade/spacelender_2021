@@ -38,13 +38,15 @@ const Search = () => {
         value={venueValue}
         name="Venue"
       />
-      <button className={classes.SearchButton} onClick={handleSubmit}>
-        <IconContext.Provider
-          value={{ size: "32px", className: classes.SVGButton }}
-        >
-          <BsSearch />
-        </IconContext.Provider>
-      </button>
+      <div className={classes.ButtonContainer}>
+        <button className={classes.SearchButton} onClick={handleSubmit}>
+          <IconContext.Provider
+            value={{ size: "32px", className: classes.SVGButton }}
+          >
+            <BsSearch />
+          </IconContext.Provider>
+        </button>
+      </div>
     </div>
   );
 };
