@@ -1,0 +1,103 @@
+.Signup {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+}
+
+.Logo {
+  background: var(--primary-blue);
+  display: none;
+}
+
+.Logo img {
+  height: 24vh;
+  width: 20vh;
+}
+
+.Credentials {
+  background: var(--primary-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Credentials h2 {
+  font-family: var(--ff-primary);
+  font-size: 1.7rem;
+  border-bottom: 2px solid var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
+
+.Credentials .SignupForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.SignupForm input {
+  width: 80%;
+  padding: 0.7rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--primary-blue);
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  font-family: var(--ff-primary);
+}
+
+.SignupForm input:focus {
+  border: 1px solid blue;
+}
+
+.SignupForm button {
+  width: 80%;
+  padding: 1rem 2rem;
+  background: var(--primary-blue);
+  color: var(--primary-white);
+  font-size: 1.2rem;
+  font-family: var(--ff-primary);
+  border: none;
+  border-radius: 1rem;
+  transition: var(--transition);
+  margin-top: 1rem;
+}
+
+.SignupForm button:focus {
+  outline: none;
+}
+
+.SignupForm button:hover {
+  background: var(--secondary-blue);
+  color: #000000;
+  cursor: pointer;
+  border: 1px solid #000000;
+}
+
+.Error {
+  color: red;
+  font-size: 1rem;
+  font-family: var(--ff-secondary);
+  padding: 1rem;
+}
+
+.Login {
+  font-size: 1.2rem;
+  font-family: var(--ff-primary);
+  padding: 0.7rem 0;
+}
+
+@media (min-width: 768px) {
+  .Signup {
+    grid-template-columns: 50% 50%;
+  }
+
+  .Logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

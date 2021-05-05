@@ -4,7 +4,7 @@ import Burgermenu from "../Burgermenu/Burgermenu";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../../assets/logo.png";
 import { uiActions } from "../../store/reducers/ui";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navbarBg, setNavbarBg] = useState(false);
@@ -37,24 +37,27 @@ const Navbar = () => {
             : `${classes.Navbar}`
         }
       >
-        <div className={classes.Logo}>
-          <img src={logo} alt="spacelender logo" />
-          <p>spacelender</p>
-        </div>
+        <Link to="/">
+          <div className={classes.Logo}>
+            <img src={logo} alt="spacelender logo" />
+            <p>spacelender</p>
+          </div>
+        </Link>
         <Burgermenu />
         <ul className={classes.Nav_Links}>
-          {path === "/" && (
-            <li>
-              <a href="#about">About Us</a>
-            </li>
-          )}
-          {path === "/" && (
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          )}
           <li>
-            <a href="#about">Log In</a>
+            {path === "/" ? (
+              <a href="#about">About Us</a>
+            ) : (
+              <Link to="/">Home</Link>
+            )}
+          </li>
+
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>
@@ -66,24 +69,28 @@ const Navbar = () => {
         }
       >
         <ul className={classes.Nav_Links_Dropdown}>
-          {path === "/" && (
-            <li>
+          <li>
+            {path === "/" ? (
               <a href="#about" onClick={hideDropdown}>
                 About Us
               </a>
-            </li>
-          )}
-          {path === "/" && (
-            <li>
-              <a href="#contact" onClick={hideDropdown}>
-                Contact
-              </a>
-            </li>
-          )}
+            ) : (
+              <Link to="/" onClick={hideDropdown}>
+                Home
+              </Link>
+            )}
+          </li>
+
           <li>
-            <a href="#about" onClick={hideDropdown}>
-              Log In
-            </a>
+            <Link to="/contact" onClick={hideDropdown}>
+              Contact
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/login" onClick={hideDropdown}>
+              Login
+            </Link>
           </li>
         </ul>
       </div>
