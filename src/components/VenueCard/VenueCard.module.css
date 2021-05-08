@@ -1,0 +1,131 @@
+.VenueCard {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 100%;
+  border: 1px solid var(--primary-gray);
+  min-height: 300px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px 3px var(--primary-gray);
+  padding: 1rem;
+  margin: 1rem 0;
+  background: var(--secondary-blue);
+}
+
+.Img {
+  position: relative;
+}
+
+.VenueCard .Img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.Tag {
+  position: absolute;
+  z-index: 1;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: var(--primary-blue);
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  font-family: var(--ff-primary);
+  color: var(--primary-white);
+  border-radius: 5px;
+}
+
+.Content {
+  padding: 0 1rem;
+  position: relative;
+}
+
+.Content .Name {
+  font-family: var(--ff-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.Content .Address {
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.Address .Icon {
+  color: #000000;
+  margin-right: 0.5rem;
+  display: none;
+}
+
+.Address p {
+  font-family: var(--ff-primary);
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.Content .Features {
+  display: none;
+  padding: 0.5rem 0;
+}
+
+.Features p {
+  font-size: 0.8rem;
+  font-family: var(--ff-primary);
+  color: rgb(112, 109, 109);
+  padding-right: 1rem;
+}
+
+.Footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.Footer .Capacity {
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+  margin-top: 0.5rem;
+}
+
+.Price p {
+  font-size: 1rem;
+  font-family: var(--ff-primary);
+  color: #000000;
+  font-weight: 700;
+}
+
+.Capacity .CapacityIcon {
+  color: var(--primary-blue);
+  margin-right: 0.2rem;
+}
+
+.Capacity p {
+  font-size: 1rem;
+  font-family: var(--ff-primary);
+  color: #000000;
+}
+
+@media (min-width: 768px) {
+  .VenueCard {
+    min-height: 200px;
+  }
+
+  .Content .Features {
+    display: flex;
+  }
+
+  .Footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Address .Icon {
+    display: block;
+  }
+
+  .Footer .Capacity {
+    margin-top: 0;
+  }
+}

@@ -3,7 +3,11 @@ import classes from "./Search.module.css";
 import Input from "./Input/Input";
 import { IconContext } from "react-icons";
 import { BsSearch } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import { resultsActions } from "../../store/reducers/searchResults";
+import { uiActions } from "../../store/reducers/ui";
+import { useHistory } from "react-router-dom";
 
 import occassionData from "./data/occassion";
 import locationData from "./data/location";
@@ -14,8 +18,43 @@ const Search = () => {
   const locationValue = useSelector((state) => state.search.location);
   const venueValue = useSelector((state) => state.search.venue);
 
-  const handleSubmit = () => {
-    console.log(occassionValue, locationValue, venueValue);
+  const dispatch = useDispatch();
+
+  const { REACT_APP_API_URL } = process.env;
+
+  const history = useHistory();
+
+  const handleSubmit = async () => {
+    if (
+      occassionValue.length < 3 ||
+      locationValue.length < 3 ||
+      venueValue.length < 3
+    ) {
+      return console.log("No results found");
+    }
+    dispatch(uiActions.updateIsLoading());
+    const body = {
+      eventTypes: [occassionValue],
+      location: locationValue,
+    };
+    try {
+      const res = await axios.post(
+        `${REACT_APP_API_URL}api/getSpacesByCustomCriteria/`,
+        body
+      );
+      if (Array.isArray(res.data)) {
+        dispatch(resultsActions.updateResults(res.data));
+        history.push("/search_results");
+        dispatch(uiActions.updateIsLoading());
+      } else {
+        history.push("/search_results");
+        dispatch(uiActions.updateIsLoading());
+      }
+    } catch (e) {
+      dispatch(uiActions.updateIsLoading());
+      console.log(e);
+      return;
+    }
   };
 
   return (

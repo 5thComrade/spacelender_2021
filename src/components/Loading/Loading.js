@@ -17,7 +17,7 @@ const Loading = () => {
           <div className={classes.Container}>
             <img src={hourglass} alt="Hourglass" />
           </div>
-          <p>Loading...</p>
+          <p>Finding the perfect spaces for you...</p>
         </div>
       )}
     </>
