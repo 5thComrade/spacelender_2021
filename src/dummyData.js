@@ -9,7 +9,8 @@ const data = [
       "Air Conditioning",
     ],
     images: [
-      "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGFydHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1610562084360-0b617911f71f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGhhbGx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1615414047026-802692414b79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGhhbGx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     ],
     tags: [
       "Auction",
@@ -44,13 +45,15 @@ const data = [
       },
     ],
     listingId: "LID001",
+    type: "Party",
   },
   {
     features: ["Parking", "Kitchen", "Restrooms"],
     amenities: ["Wifi", "Tables", "Chairs"],
     extras: ["Play Area(sports)", "Air Conditioning"],
     images: [
-      "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGFydHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1495306765622-7639a965c271?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y29uZmVyZW5jZSUyMGhhbGx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1559223669-d7bb31d71f26?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y29uZmVyZW5jZSUyMGhhbGx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     ],
     tags: [
       "Anniversary",
@@ -64,7 +67,7 @@ const data = [
     currentBookings: [{}],
     availability: [{}],
     _id: "608fb25edfcb4a1b44b393e9",
-    name: "Dome TX, NewMoore Restuarant",
+    name: "Dome TX,NewMoore Restuarant",
     city: "Koramangala - Bengaluru",
     description:
       "A big space to accomodate whatever your want to celebrate.\nLocated in the heart of Bangalore, this place is at short\ndistances from most major localities. Great staff to\nassist you with any kind of setup and extra requirements.",
@@ -85,13 +88,15 @@ const data = [
       },
     ],
     listingId: "LID002",
+    type: "Conference",
   },
   {
-    features: ["Parking", "Kitchen"],
+    features: ["Parking", "Kitchen", "Restrooms"],
     amenities: ["Wifi", "Tables", "Chairs"],
     extras: ["Full Kitchen", "Air Conditioning"],
     images: [
-      "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGFydHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "https://images.unsplash.com/photo-1536181783029-1097aaf179de?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG1lZXRpbmclMjBoYWxsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     ],
     tags: [
       "BirthDay",
@@ -126,6 +131,7 @@ const data = [
       },
     ],
     listingId: "LID004",
+    type: "Conference",
   },
 ];
 

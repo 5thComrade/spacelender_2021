@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialResultsState = {
   results: [],
+  highToLow: false,
 };
 
 const resultsSlice = createSlice({
@@ -10,6 +11,9 @@ const resultsSlice = createSlice({
   reducers: {
     updateResults(state, action) {
       state.results = action.payload;
+    },
+    updateSort(state) {
+      state.highToLow = !state.highToLow;
     },
   },
 });
