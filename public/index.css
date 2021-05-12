@@ -23,6 +23,10 @@ html {
   scroll-behavior: smooth;
 }
 
+#root {
+  position: relative;
+}
+
 ul {
   list-style-type: none;
 }

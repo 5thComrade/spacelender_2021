@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialUIState = {
   showDropNavBar: false,
   isLoading: false,
+  highToLow: false,
+  filterDisplayed: false,
 };
 
 const uiSlice = createSlice({
@@ -14,6 +16,12 @@ const uiSlice = createSlice({
     },
     updateIsLoading(state) {
       state.isLoading = !state.isLoading;
+    },
+    updateSort(state) {
+      state.highToLow = !state.highToLow;
+    },
+    updateFilterDisplayed(state) {
+      state.filterDisplayed = !state.filterDisplayed;
     },
   },
 });

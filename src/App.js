@@ -8,7 +8,7 @@ import Loading from "./components/Loading/Loading";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Contact from "./pages/Contact/Contact";
-import SearchResults from "./pages/SearchResults/SearchResults";
+import Results from "./pages/Results/Results";
 import Error from "./pages/Error/Error";
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
           <Home />
         </Route>
         <Route path="/search_results">
-          <SearchResults />
+          <Results />
         </Route>
         <Route path="/signup">
           <Signup />

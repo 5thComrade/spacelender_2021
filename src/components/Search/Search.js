@@ -20,6 +20,10 @@ const Search = () => {
 
   const dispatch = useDispatch();
 
+  dispatch(resultsActions.updateFilterApplied(false));
+  dispatch(resultsActions.updateBudgetFilterApplied(false));
+  dispatch(resultsActions.updateTypeFilterApplied(false));
+
   const { REACT_APP_API_URL } = process.env;
 
   const history = useHistory();
@@ -33,10 +37,16 @@ const Search = () => {
       return console.log("No results found");
     }
     dispatch(uiActions.updateIsLoading());
+    // const body = {
+    //   eventTypes: [occassionValue],
+    //   location: locationValue,
+    //   type: venueValue,
+    // };
+
     const body = {
-      eventTypes: [occassionValue],
-      location: locationValue,
+      amenities: "Tables",
     };
+    dispatch(resultsActions.updateBody(body));
     try {
       const res = await axios.post(
         `${REACT_APP_API_URL}api/getSpacesByCustomCriteria/`,

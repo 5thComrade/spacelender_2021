@@ -3,7 +3,7 @@ export const sortLowToHigh = (arr) => {
   newArray.sort((a, b) => {
     return a.pricing - b.pricing;
   });
-  return newArray;
+    return newArray;
 };
 
 export const sortHighToLow = (arr) => {

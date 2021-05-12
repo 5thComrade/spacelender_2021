@@ -9,6 +9,12 @@
   padding: 1rem;
   margin: 1rem 0;
   background: var(--secondary-blue);
+  transition: var(--transition);
+}
+
+.VenueCard:hover {
+  cursor: pointer;
+  transform: scale(1.01);
 }
 
 .Img {

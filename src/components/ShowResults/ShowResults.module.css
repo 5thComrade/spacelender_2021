@@ -1,0 +1,27 @@
+.ShowResults {
+  position: absolute;
+  top: 10vh;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.Results {
+  font-family: var(--ff-primary);
+  padding: 0 2rem;
+}
+
+.GrayOut {
+  font-size: 0.9rem;
+  padding: 1rem 0 0 0;
+  color: var(--primary-gray);
+}
+
+.FilterButtons {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .ShowResults {
+    grid-template-columns: 1fr 1fr;
+  }
+}

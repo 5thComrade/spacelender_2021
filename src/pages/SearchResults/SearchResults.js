@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./SearchResults.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -18,6 +18,14 @@ import data from "../../dummyData";
 const SearchResults = () => {
   const results = useSelector((state) => state.results.results);
   const sortHighToLowStatus = useSelector((state) => state.results.highToLow);
+  const currentAPIBody = useSelector((state) => state.results.currentAPIBody);
+  const priceRange = useSelector((state) => state.results.priceRange);
+  const duplicateResults = useSelector(
+    (state) => state.results.duplicateResults
+  );
+
+  //The previous api post request body
+  console.log(currentAPIBody);
 
   const dispatch = useDispatch();
 
@@ -33,8 +41,137 @@ const SearchResults = () => {
     conference: false,
   });
 
+  const [minBudget, setMinBudget] = useState(0);
+  const [maxBudget, setMaxBudget] = useState(0);
+
   //change here to use either dummyData or results state
   const finalResults = results;
+
+  useEffect(() => {
+    if (finalResults.length > 0) {
+      const newArray = sortLowToHigh(finalResults);
+      dispatch(resultsActions.updateDuplicateResults(newArray));
+      setMinBudget(newArray[0].pricing);
+      setMaxBudget(newArray[newArray.length - 1].pricing);
+      dispatch(
+        resultsActions.updatePriceRange([
+          newArray[0].pricing,
+          newArray[newArray.length - 1].pricing,
+        ])
+      );
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  const changeSort = () => {
+    dispatch(resultsActions.updateSort());
+  };
+
+  const filterShowHandler = (value) => {
+    if (value === "type") {
+      setShowFilterOptions({
+        showTypeFilter: true,
+        showBudgetFilter: false,
+        showCapacityFilter: false,
+        showAdvancedFilter: false,
+      });
+    }
+
+    if (value === "budget") {
+      setShowFilterOptions({
+        showTypeFilter: false,
+        showBudgetFilter: true,
+        showCapacityFilter: false,
+        showAdvancedFilter: false,
+      });
+    }
+
+    if (value === "capacity") {
+      setShowFilterOptions({
+        showTypeFilter: false,
+        showBudgetFilter: false,
+        showCapacityFilter: true,
+        showAdvancedFilter: false,
+      });
+    }
+
+    if (value === "advanced") {
+      setShowFilterOptions({
+        showTypeFilter: false,
+        showBudgetFilter: false,
+        showCapacityFilter: false,
+        showAdvancedFilter: true,
+      });
+    }
+  };
+
+  const cancelFilterHandler = () => {
+    setShowFilterOptions({
+      showTypeFilter: false,
+      showBudgetFilter: false,
+      showCapacityFilter: false,
+      showAdvancedFilter: false,
+    });
+  };
+
+  const applyFilterHandler = (value) => {
+    if (value === "type") {
+      if (!typeSelected.party && !typeSelected.conference) {
+        setShowFilterOptions({
+          showTypeFilter: false,
+          showBudgetFilter: false,
+          showCapacityFilter: false,
+          showAdvancedFilter: false,
+        });
+      } else if (typeSelected.party) {
+        console.log("Its Party");
+        setShowFilterOptions({
+          showTypeFilter: false,
+          showBudgetFilter: false,
+          showCapacityFilter: false,
+          showAdvancedFilter: false,
+        });
+      } else {
+        console.log("Its Conference");
+        setShowFilterOptions({
+          showTypeFilter: false,
+          showBudgetFilter: false,
+          showCapacityFilter: false,
+          showAdvancedFilter: false,
+        });
+      }
+    }
+
+    if (value === "budget") {
+      console.log("Budget Baby");
+      const newArr = duplicateResults.filter((venue) => {
+        return venue.pricing >= minBudget && venue.pricing <= maxBudget;
+      });
+      dispatch(resultsActions.updateResults(newArr));
+    }
+  };
+
+  const typeSelectHandler = (value) => {
+    if (value === "party") {
+      setTypeSelected({
+        party: true,
+        conference: false,
+      });
+    } else {
+      setTypeSelected({
+        party: false,
+        conference: true,
+      });
+    }
+  };
+
+  const sliderMinChangeHandler = (e) => {
+    setMinBudget(e.target.value);
+  };
+
+  const sliderMaxChangeHandler = (e) => {
+    setMaxBudget(e.target.value);
+  };
 
   const noResults = () => {
     return (
@@ -48,73 +185,6 @@ const SearchResults = () => {
   };
 
   const showResults = () => {
-    const changeSort = () => {
-      dispatch(resultsActions.updateSort());
-    };
-
-    const filterShowHandler = (value) => {
-      if (value === "type") {
-        setShowFilterOptions({
-          showTypeFilter: true,
-          showBudgetFilter: false,
-          showCapacityFilter: false,
-          showAdvancedFilter: false,
-        });
-      }
-    };
-
-    const cancelFilterHandler = () => {
-      setShowFilterOptions({
-        showTypeFilter: false,
-        showBudgetFilter: false,
-        showCapacityFilter: false,
-        showAdvancedFilter: false,
-      });
-    };
-
-    const applyFilterHandler = (value) => {
-      if (value === "type") {
-        if (!typeSelected.party && !typeSelected.conference) {
-          setShowFilterOptions({
-            showTypeFilter: false,
-            showBudgetFilter: false,
-            showCapacityFilter: false,
-            showAdvancedFilter: false,
-          });
-        } else if (typeSelected.party) {
-          console.log("Its Party");
-          setShowFilterOptions({
-            showTypeFilter: false,
-            showBudgetFilter: false,
-            showCapacityFilter: false,
-            showAdvancedFilter: false,
-          });
-        } else {
-          console.log("Its Conference");
-          setShowFilterOptions({
-            showTypeFilter: false,
-            showBudgetFilter: false,
-            showCapacityFilter: false,
-            showAdvancedFilter: false,
-          });
-        }
-      }
-    };
-
-    const typeSelectHandler = (value) => {
-      if (value === "party") {
-        setTypeSelected({
-          party: true,
-          conference: false,
-        });
-      } else {
-        setTypeSelected({
-          party: false,
-          conference: true,
-        });
-      }
-    };
-
     return (
       <div className={classes.SearchResults}>
         <div className={classes.Results}>
@@ -197,15 +267,73 @@ const SearchResults = () => {
 
             {/* BUDGET FILTER */}
             <div className={classes.BudgetFilter}>
-              <button className={classes.Button}>Budget</button>
+              <button
+                className={classes.Button}
+                onClick={() => filterShowHandler("budget")}
+              >
+                Budget
+              </button>
               {showFilterOptions.showBudgetFilter ? (
-                <div className={classes.FilterBox}>Budget Filter</div>
+                <div
+                  className={`${classes.FilterBox} ${classes.Budget_Filter_Box}`}
+                >
+                  <div className={classes.PriceRange}>
+                    <p className={classes.Min}>Rs. {minBudget}</p>
+                    <span></span>
+                    <p className={classes.Max}>Rs. {maxBudget}</p>
+                  </div>
+                  <div className={classes.PriceSlider}>
+                    <div className={classes.Container}>
+                      <input
+                        type="range"
+                        min={priceRange[0]}
+                        max={
+                          priceRange[0] + (priceRange[1] - priceRange[0]) / 2
+                        }
+                        step="500"
+                        onChange={sliderMinChangeHandler}
+                        className={classes.Slider_One}
+                        value={minBudget}
+                      />
+                      <input
+                        type="range"
+                        min={
+                          priceRange[0] + (priceRange[1] - priceRange[0]) / 2
+                        }
+                        max={priceRange[1]}
+                        step="500"
+                        onChange={sliderMaxChangeHandler}
+                        className={classes.Slider_Two}
+                        value={maxBudget}
+                      />
+                    </div>
+                  </div>
+                  <div className={classes.ApplyCancelButton}>
+                    <button
+                      className={classes.CancelButton}
+                      onClick={cancelFilterHandler}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className={classes.ApplyButton}
+                      onClick={() => applyFilterHandler("budget")}
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
               ) : null}
             </div>
 
             {/* CAPACITY FILTER */}
             <div className={classes.CapacityFilter}>
-              <button className={classes.Button}>Capacity</button>
+              <button
+                className={classes.Button}
+                onClick={() => filterShowHandler("capacity")}
+              >
+                Capacity
+              </button>
               {showFilterOptions.showCapacityFilter ? (
                 <div className={classes.FilterBox}>Capacity Filter</div>
               ) : null}
@@ -213,7 +341,12 @@ const SearchResults = () => {
 
             {/* ADVANCED FILTER */}
             <div className={classes.AdvancedFilter}>
-              <button className={classes.Button}>Advanced Filters</button>
+              <button
+                className={classes.Button}
+                onClick={() => filterShowHandler("advanced")}
+              >
+                Advanced Filters
+              </button>
             </div>
           </div>
           {(sortHighToLowStatus
