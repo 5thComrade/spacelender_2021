@@ -1,7 +1,3 @@
-.FilterButtonContainer {
-  display: inline-block;
-}
-
 .Button {
   padding: 0.5rem 1rem;
   border: none;
@@ -22,4 +18,10 @@
 
 .Button:focus {
   outline: none;
+}
+
+@media (min-width: 768px) {
+  .FilterButtonContainer {
+    display: inline-block;
+  }
 }

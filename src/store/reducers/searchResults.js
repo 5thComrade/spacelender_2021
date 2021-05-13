@@ -8,6 +8,8 @@ const initialResultsState = {
   priceRange: [],
   typeFilterApplied: false,
   type: "",
+  capacityFilterApplied: false,
+  capacityRange: [],
 };
 
 const resultsSlice = createSlice({
@@ -34,6 +36,12 @@ const resultsSlice = createSlice({
     },
     updateType(state, action) {
       state.type = action.payload;
+    },
+    updateCapacityFilterApplied(state, action) {
+      state.capacityFilterApplied = action.payload;
+    },
+    updateCapacityRange(state, action) {
+      state.capacityRange = action.payload;
     },
   },
 });

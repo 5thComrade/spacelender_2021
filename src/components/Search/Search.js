@@ -20,9 +20,12 @@ const Search = () => {
 
   const dispatch = useDispatch();
 
+  dispatch(resultsActions.updateResults([]));
+  dispatch(resultsActions.updateBody({}));
   dispatch(resultsActions.updateFilterApplied(false));
   dispatch(resultsActions.updateBudgetFilterApplied(false));
   dispatch(resultsActions.updateTypeFilterApplied(false));
+  dispatch(resultsActions.updateCapacityFilterApplied(false));
 
   const { REACT_APP_API_URL } = process.env;
 

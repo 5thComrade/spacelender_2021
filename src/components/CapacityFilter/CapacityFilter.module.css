@@ -1,5 +1,4 @@
 .FilterButtonContainer {
-  display: inline-block;
   position: relative;
 }
 
@@ -43,10 +42,101 @@
 
 .CapacityRangeDisplay {
   height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  position: relative;
+}
+
+.CapacityRangeDisplay span {
+  width: 25px;
+  height: 1px;
+  border: 1px solid #000000;
+  position: absolute;
+  top: 60%;
+}
+
+.CapacityRangeDisplay p {
+  position: relative;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 0.7rem;
+  font-family: var(--ff-primary);
+  font-size: 0.9rem;
+  width: 5rem;
+  text-align: center;
+}
+
+.CapacityRangeDisplay .Min::before {
+  position: absolute;
+  content: "MIN";
+  font-size: 0.9rem;
+  font-family: var(--ff-primary);
+  top: -50%;
+  left: 0;
+  color: var(--primary-gray);
+}
+
+.CapacityRangeDisplay .Max::before {
+  position: absolute;
+  content: "MAX";
+  font-size: 0.9rem;
+  font-family: var(--ff-primary);
+  top: -50%;
+  left: 0;
+  color: var(--primary-gray);
 }
 
 .CapacitySlider {
   height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CapacitySlider .Container {
+  position: relative;
+  width: 70%;
+}
+
+.CapacitySlider .Slider_One {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-appearance: none;
+}
+
+.CapacitySlider .Slider_Two {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-appearance: none;
+}
+
+.CapacitySlider .Slider_One:focus,
+.PriceSlider .Slider_Two:focus {
+  outline: none;
+}
+
+.CapacitySlider .Slider_One::-webkit-slider-runnable-track,
+.CapacitySlider .Slider_Two::-webkit-slider-runnable-track {
+  height: 8px;
+  background: var(--primary-blue);
+}
+
+.CapacitySlider .Slider_One::-webkit-slider-thumb,
+.CapacitySlider .Slider_Two::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid var(--primary-blue);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--primary-white);
+  cursor: pointer;
+  margin-top: -4px;
 }
 
 .ApplyCancelButton {
@@ -88,4 +178,10 @@
 .CancelButton:focus,
 .ApplyButton:focus {
   outline: none;
+}
+
+@media (min-width: 768px) {
+  .FilterButtonContainer {
+    display: inline-block;
+  }
 }

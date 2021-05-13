@@ -3,7 +3,7 @@
   grid-template-columns: 40% 60%;
   grid-template-rows: 100%;
   border: 1px solid var(--primary-gray);
-  min-height: 300px;
+  min-height: 250px;
   border-radius: 5px;
   box-shadow: 2px 2px 10px 3px var(--primary-gray);
   padding: 1rem;

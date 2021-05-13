@@ -1,5 +1,4 @@
 .FilterButtonContainer {
-  display: inline-block;
   position: relative;
 }
 
@@ -61,6 +60,11 @@
   transition: var(--transition);
 }
 
+.Party:hover,
+.Conference:hover {
+  background: var(--primary-gray);
+}
+
 .Party.Active,
 .Conference.Active {
   background: var(--secondary-blue);
@@ -69,6 +73,14 @@
 .Party div,
 .Conference div {
   margin-top: 0.5rem;
+  border: 1px solid var(--primary-blue);
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.Party .PartyIcon,
+.Conference .ConferenceIcon {
+  color: var(--primary-blue);
 }
 
 .Party p,
@@ -115,4 +127,10 @@
 .CancelButton:focus,
 .ApplyButton:focus {
   outline: none;
+}
+
+@media (min-width: 768px) {
+  .FilterButtonContainer {
+    display: inline-block;
+  }
 }

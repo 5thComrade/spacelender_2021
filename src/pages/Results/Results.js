@@ -1,8 +1,7 @@
 import React from "react";
 
 //Redux-State
-import { useSelector, useDispatch } from "react-redux";
-import { uiActions } from "../../store/reducers/ui";
+import { useSelector } from "react-redux";
 
 //External Components
 import NoResults from "../../components/NoResults/NoResults";
@@ -12,7 +11,7 @@ import ShowResults from "../../components/ShowResults/ShowResults";
 import data from "../../dummyData";
 
 const Results = () => {
-  const results = useSelector((state) => state.results.results);
+  // const results = useSelector((state) => state.results.results);
   const isFilterApplied = useSelector((state) => state.results.isFilterApplied);
   const budgetFilterApplied = useSelector(
     (state) => state.results.budgetFilterApplied
@@ -22,9 +21,10 @@ const Results = () => {
     (state) => state.results.typeFilterApplied
   );
   const type = useSelector((state) => state.results.type);
-
-  const dispatch = useDispatch();
-  dispatch(uiActions.updateFilterDisplayed());
+  const capacityFilterApplied = useSelector(
+    (state) => state.results.capacityFilterApplied
+  );
+  const capacityRange = useSelector((state) => state.results.capacityRange);
 
   let finalResults = data; //change here
 
@@ -38,6 +38,15 @@ const Results = () => {
     if (typeFilterApplied) {
       finalResults = finalResults.filter((venue) => {
         return venue.type === type;
+      });
+    }
+
+    if (capacityFilterApplied) {
+      finalResults = finalResults.filter((venue) => {
+        return (
+          venue.capacity >= capacityRange[0] &&
+          venue.capacity <= capacityRange[1]
+        );
       });
     }
   } else {

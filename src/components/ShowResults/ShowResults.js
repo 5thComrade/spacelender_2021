@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./ShowResults.module.css";
 
 //React-redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { resultsActions } from "../../store/reducers/searchResults";
 
 //External Components
 import VenueCard from "../VenueCard/VenueCard";
@@ -15,12 +16,34 @@ import CapacityFilter from "../CapacityFilter/CapacityFilter";
 import {
   sortHighToLow,
   sortLowToHigh,
+  sortCapacity,
 } from "../../utilityFunctions/sortResults";
 
 const ShowResults = (props) => {
   const { results } = props;
 
   const sortHighToLowStatus = useSelector((state) => state.ui.highToLow);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (results.length > 0) {
+      let budgetArr = sortLowToHigh(results);
+      dispatch(
+        resultsActions.updatePriceRange([
+          budgetArr[0].pricing,
+          budgetArr[budgetArr.length - 1].pricing,
+        ])
+      );
+      let capacityArr = sortCapacity(results);
+      dispatch(
+        resultsActions.updateCapacityRange([
+          capacityArr[0].capacity,
+          capacityArr[capacityArr.length - 1].capacity,
+        ])
+      );
+    }
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className={classes.ShowResults}>
