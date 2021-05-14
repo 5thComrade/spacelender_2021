@@ -40,15 +40,15 @@ const Search = () => {
       return console.log("No results found");
     }
     dispatch(uiActions.updateIsLoading());
-    // const body = {
-    //   eventTypes: [occassionValue],
-    //   location: locationValue,
-    //   type: venueValue,
-    // };
-
     const body = {
-      amenities: "Tables",
+      eventTypes: [occassionValue],
+      location: locationValue,
+      type: venueValue,
     };
+
+    // const body = {
+    //   amenities: "Tables",
+    // };
     dispatch(resultsActions.updateBody(body));
     try {
       const res = await axios.post(
@@ -64,6 +64,7 @@ const Search = () => {
         dispatch(uiActions.updateIsLoading());
       }
     } catch (e) {
+      history.push("/search_results"); //remove this from production if it ever goes live
       dispatch(uiActions.updateIsLoading());
       console.log(e);
       return;
